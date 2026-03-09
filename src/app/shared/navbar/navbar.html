@@ -1,8 +1,31 @@
-<nav>
-    <ul>
-        <li><a routerLink="/home">Home</a></li>
-        <li><a routerLink="/about">Service</a></li>
-        <li><a routerLink="/contact">Contact</a></li>
-        <li><a routerLink="/quote"></a>Quote</li>
+<!-- COMPONENTE NAVBAR REUTILIZABLE O COMPARTIDA CON LAS OTRAS PAGINAS-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <a class="navbar-brand" routerLink="/home">MiSitio</a>
+
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about">Service</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/quote">Quote</a>
+      </li>
     </ul>
+  </div>
 </nav>
+
+<!--PASOS PARA CREAR UN COMPONENTE CON ANGULAR
+  1. Crear el componente con el comando: ng g c shared/navbar (nombre del componente)
+  2-Importarlo donde se va usar, un componente compartido va en app.ts 
+  3-Usar el selector del componente en el html donde se quiera mostrar, en este caso en app.html se pone <app-navbar></app-navbar>
+
+  PORQUE IMPORTAR COMPONENTES EN APP.TS?
+  Porque es el componente raiz, el que se carga al iniciar la aplicacion, y si queremos que un componente se muestre en todas las paginas, 
+  lo importamos en app.ts para que este disponible en toda la aplicacion.
+-->
