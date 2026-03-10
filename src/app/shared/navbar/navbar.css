@@ -1,30 +1,114 @@
-.spacer{
-    flex: 1 1 auto;
+/*ESTILOS DEL NAVBAR (BARRA DE NAVEGACION)*/
+
+/*ESTE IMPORT, IMPORTA LA FUENTE POPPINS DESDE GOOGLE FOTNS*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  font-family: Poppins; /*tipo de fuente de letra, puedes cambiarlo si gustas*/
+}
+/* Color del Navbar */
+.custom-navbar {
+  background-color: #f8f9fa !important;  /*color del fondo del navbar*/
+  height: 80px; /*altura que ocupa el navbar*/
+  /* Permite que los elementos dentro (como el logo centrado) se posicionen respecto a este navbar */
+  padding: 0;/* Quita los espacios internos por defecto, así podemos manejar manualmente dónde van los enlaces y el logo */
+  
 }
 
-.menu-desktop{
-    display: flex;
-}
-.btn-hamburger {
-  display: none;
+/* Contenedor del logo */
+.logo-container {
+  position: absolute; /* Hace que el logo se saque del flujo normal y podamos colocarlo donde queramos */
+  left: 50%; /* Lo mueve horizontalmente hasta la mitad del navbar */
+  top: 0;/* Lo coloca pegado arriba del navbar */
+  transform: translateX(-50%);/* Ajusta la posición para que quede exactamente centrado, porque left:50% no lo centra solo */
+  z-index: 1050;/* Hace que el logo esté por encima de otros elementos (como los enlaces) */
 }
 
-/* En móviles */
-@media (max-width: 768px) {
-  .menu-desktop {
-    display: none;
+/* Estilo del Logo*/
+.logo-cuadrado {
+  height: 110px; /* Altura del logo, sobresale un poco del navar, si quieres que sobresalga mas o menos ajusta el valor*/
+  width: 110px;  /* Ancho para mantenerlo circular, pon el mismo valor que el "height" para que se vea circular */
+  background-color:#f8f9fa ;/* Color de fondo del logo, mismo que el navbar para que se vea integrado, puedes cambiarlo si lo deseas */
+  border-radius: 50%;/*hace que el logo sea circular */
+  border: 6px solid #f8f9fa; /* Borde alrededor del logo del mismo color que el fondo */
+  border-top: none; /* Borde alrededor del logo del mismo color que el fondo */
+  display: block;/*se comporta como un bloque, ocupa su espacio completo*/
+  object-fit: contain; /* Hace que la imagen dentro del logo se ajuste sin deformarse */
+  padding: 10px;  /* Espacio interno para que la imagen no toque los bordes */
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2); /* Sombra para dar profundidad */
+}
+
+/* Ajustes de los enlaces */
+.navbar-nav .nav-link {
+  color: black !important; /*color de letra de los enlaces*/
+  font-weight: 600 ;/*letras mas negritas, si quieres resaltar mas pon "bold" en lugar del numero*/
+  text-transform: uppercase;/*convierte la letra a mayuscul, si lo quieres solo la primera letra mayuscula quita esta linea*/
+  padding: 0 20px !important;
+}
+
+/* Centrado en pantallas grandes */
+@media (min-width: 992px) {
+  .navbar-collapse {
+    flex-basis: 100%;
+  }
+  #navLeft {
+    padding-right: 70px; /* Espacio para que el logo no tape el texto */
+  }
+  #navRight {
+    padding-left: 70px;
+  }
+}
+
+.nav-link.active {
+  color: gold !important; /* o el color que quieras */
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* --- ESTILOS GENERALES --- */
+
+
+/* --- AJUSTES ESCRITORIO (Pantallas grandes) --- */
+@media (min-width: 992px) {
+  #mainNavbar .d-lg-flex:first-child {
+    padding-right: 120px; /* Más espacio respecto al logo */
+    width: 50%;
+    justify-content: flex-end;
+  }
+  
+  #mainNavbar .d-lg-flex:last-child {
+    padding-left: 120px; 
+    width: 50%;
+    justify-content: flex-start;
   }
 
-  .btn-hamburger {
-    display: block;
+  
+  .nav-link {
+    margin: 0 10px; 
   }
 }
 
-/*COLOR DEL NAVBAR*/
-.navbar {
-  background-color: #000000; 
-  color: white; 
-}
-.navbar a {
-  color: white; 
+/* --- AJUSTES MÓVIL */
+@media (max-width: 991px) {
+  .custom-navbar {
+    height: auto;
+    min-height: 80px;
+  }
+
+  .navbar-collapse {
+    background-color: #f8f9fa;
+    padding: 80px 0 30px 0; 
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.05);
+  }
+
+  .nav-link {
+    padding: 15px 0 !important; 
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  #mainNavbar .d-lg-flex {
+    width: 100% !important;
+    padding: 0 !important;
+  }
 }
