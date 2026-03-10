@@ -1,3 +1,30 @@
 .spacer{
     flex: 1 1 auto;
 }
+
+.menu-desktop{
+    display: flex;
+}
+.btn-hamburger {
+  display: none;
+}
+
+/* En móviles */
+@media (max-width: 768px) {
+  .menu-desktop {
+    display: none;
+  }
+
+  .btn-hamburger {
+    display: block;
+  }
+}
+
+/*COLOR DEL NAVBAR*/
+.navbar {
+  background-color: #000000; 
+  color: white; 
+}
+.navbar a {
+  color: white; 
+}
