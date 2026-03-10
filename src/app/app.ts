@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from "./shared/navbar/navbar";
+import { Footer } from './shared/footer/footer';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar],
+  imports: [RouterOutlet, Navbar, Footer],
   standalone: true,
   templateUrl: './app.html',
   styleUrl: './app.css'
