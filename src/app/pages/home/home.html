@@ -1,4 +1,34 @@
-<section>
-    <H1>Welcome to the Home Page</H1>
-    <p>pagina principal</p>
-</section>
+<div class="carousel-wrapper">
+
+  <!-- OVERLAY -->
+  <div class="slide-overlay">
+    <div class="overlay-content">
+      <h1>{{ slides[current].title }}</h1>
+      <p>{{ slides[current].text }}</p>
+      <a [routerLink]="slides[current].buttonLink" class="btn-contact">
+        {{ slides[current].buttonText }}
+      </a>
+    </div>
+  </div>
+
+  <!-- IMAGENES -->
+  <div class="images-grid">
+    @for (img of slides[current].images; track $index) {
+      <img [src]="img" class="carousel-img" alt="">
+    }
+  </div>
+
+  <!-- CONTROLES -->
+  <button class="control prev" (click)="prev()">&#10094;</button>
+  <button class="control next" (click)="next()">&#10095;</button>
+
+  <!-- PUNTOS -->
+  <div class="dots">
+    @for (slide of slides; track $index) {
+      <span class="dot" [class.active]="$index === current" (click)="current = $index"></span>
+    }
+  </div>
+
+</div>
+
+<!-- resto del contenido de home -->
